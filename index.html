@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Mother's Day!</title>
+    <!-- Google Fonts: Great Vibes for elegant script, Inter for clean body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Entrance Overlay -->
+    <div id="entranceOverlay" class="entrance-overlay">
+        <h2>For You, Mom</h2>
+        <button id="enterBtn" class="enter-button">Open Your Card</button>
+    </div>
+    
+    <!-- Background Music -->
+    <audio id="bgMusic" loop src="assets/music.mp3"></audio>
+
+    <!-- Main Content Wrapper -->
+    <div id="mainContent" style="display: none; opacity: 0; transition: opacity 2s ease;">
+        <div class="background-container"></div>
+        
+        <!-- Floating Elements Container -->
+        <div id="floatingElements" class="floating-elements"></div>
+
+    <!-- Hero Section -->
+    <section class="hero slide-up">
+        <div class="hero-content">
+            <h1>Happy Mother's Day</h1>
+            <p class="subtitle">To the most amazing person in the world</p>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section class="message-section fade-in">
+        <div class="card">
+            <div class="image-wrapper">
+                <img src="assets/bouquet.png" alt="Lavender Bouquet" id="main-image" title="Click me!">
+            </div>
+            <p id="clickHint" class="click-hint">Tap the bouquet to open your letter ✨</p>
+            <div class="message-content">
+                <p id="typewriterText" class="message-text" data-text="&quot;Thank you for the countless sacrifices you've made, the unwavering support you've given, and the endless love you share. We celebrate you today and every day. Endless love, boundless grace. Happy Mother's Day.&quot;">
+                    <!-- Text will be typed here by JS -->
+                </p>
+                <div id="signature" class="signature" style="opacity: 0; transition: opacity 1s ease;">- With all my love</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Surprise Section -->
+    <section class="surprise-section fade-in">
+        <button id="surpriseBtn" class="surprise-button">Click for a Surprise</button>
+        
+        <!-- Hidden Photo Container -->
+        <div id="hiddenPhotoContainer" class="hidden-photo-container">
+            <p class="surprise-message">I love you, Mom! 💜</p>
+            <div class="image-wrapper">
+                <!-- Replace 'your_photo.jpg' with your actual image file name inside the assets folder -->
+                <img src="assets/your_photo.jpg" alt="Us Together" id="surpriseImage">
+            </div>
+        </div>
+    </section>
+
+    </div> <!-- End Main Content Wrapper -->
+
+    <!-- Script for confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

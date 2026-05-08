@@ -1,0 +1,331 @@
+:root {
+    --primary-lavender: #E6E6FA;
+    --dark-lavender: #967bb6;
+    --deep-purple: #4B0082;
+    --text-color: #333333;
+    --card-bg: rgba(255, 255, 255, 0.85);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    background-color: var(--primary-lavender);
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('assets/background.png');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    opacity: 0.7; /* Adjust opacity for the background */
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5.5rem;
+    color: var(--deep-purple);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--dark-lavender);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    flex-direction: column;
+}
+
+/* Animations */
+.slide-up {
+    animation: slideUp 1.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Card Styling */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 3.5rem;
+    max-width: 800px;
+    box-shadow: 0 15px 35px rgba(75, 0, 130, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.image-wrapper {
+    width: 100%;
+    max-width: 450px;
+    margin-bottom: 2.5rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: 8px solid white;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+#main-image {
+    cursor: pointer;
+}
+
+.click-hint {
+    color: var(--dark-lavender);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    animation: pulse 2s infinite;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.message-text {
+    font-size: 1.35rem;
+    line-height: 1.8;
+    color: var(--deep-purple);
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.signature {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: var(--dark-lavender);
+    margin-top: 1rem;
+}
+
+/* Button Styling */
+.surprise-button {
+    padding: 1.2rem 3rem;
+    font-size: 1.4rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, var(--dark-lavender), var(--deep-purple));
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(75, 0, 130, 0.3);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.surprise-button:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(75, 0, 130, 0.4);
+}
+
+.surprise-button:active {
+    transform: translateY(1px);
+}
+
+/* Hidden Photo Container */
+.hidden-photo-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hidden-photo-container.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.surprise-message {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: var(--deep-purple);
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+}
+
+/* Entrance Overlay */
+.entrance-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--primary-lavender);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 1s ease;
+}
+
+.entrance-overlay h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    color: var(--deep-purple);
+    margin-bottom: 2rem;
+}
+
+.enter-button {
+    padding: 1rem 2.5rem;
+    font-size: 1.25rem;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    background: var(--deep-purple);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(75, 0, 130, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.enter-button:hover {
+    transform: scale(1.05);
+}
+
+/* Floating Elements */
+.floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    bottom: -10vh;
+    background-color: rgba(150, 123, 182, 0.5); /* Soft purple */
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: floatUp 15s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Typing Cursor */
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: var(--deep-purple);
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    .card {
+        padding: 2rem;
+    }
+    .message-text {
+        font-size: 1.15rem;
+    }
+    .surprise-button {
+        font-size: 1.2rem;
+        padding: 1rem 2.5rem;
+    }
+}
