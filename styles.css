@@ -153,6 +153,7 @@ section {
 }
 
 .message-text {
+    font-family: 'Tiro Kannada', serif;
     font-size: 1.35rem;
     line-height: 1.8;
     color: var(--deep-purple);
@@ -162,8 +163,9 @@ section {
 }
 
 .signature {
-    font-family: 'Great Vibes', cursive;
-    font-size: 3rem;
+    font-family: 'Tiro Kannada', serif;
+    font-style: italic;
+    font-size: 1.8rem;
     color: var(--dark-lavender);
     margin-top: 1rem;
 }
